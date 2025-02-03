@@ -6,6 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import PageSignup from "./signup/PageSignup";
 import PageLogin from "./login/PageLogin";
 import PageLogout from "./logout/PageLogout";
+import NavBar from "../widgets/NavBar";
 
 interface PageProps {
     apiUrl: string;
@@ -76,7 +77,7 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
     return (
         <>
             <Header />
-
+            <NavBar />
             <div className="pageContainer m-5">{processPage(page)}</div>
             <Modal show={showError}>
                 <Modal.Header closeButton>
