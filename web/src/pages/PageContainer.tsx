@@ -10,6 +10,7 @@ import NavBar from "../widgets/NavBar";
 import PageBlogPost from "./blog/post/PageBlogPost";
 import PageBlog from "./blog/PageBlog";
 import PageContact from "./contact/PageContact";
+import PageAbout from "./about/PageAbout";
 
 interface PageProps {
     apiUrl: string;
@@ -25,6 +26,8 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
 
     const processPage = (pageName: string) => {
         switch (pageName) {
+            case "about":
+                return <PageAbout />;
             case "blog":
                 return <PageBlog apiUrl={apiUrl} throwError={throwError} />;
             case "blog-post":
