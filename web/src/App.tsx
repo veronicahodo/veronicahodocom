@@ -35,6 +35,7 @@ function App() {
                     {createRoute("/contact", "contact")}
                     {createRoute("/login", "login")}
                     {createRoute("/logout", "logout")}
+                    {createRoute("/projects", "projects")}
                     {createRoute("/signup", "signup")}
                 </Routes>
             </BrowserRouter>

@@ -11,6 +11,7 @@ import PageBlogPost from "./blog/post/PageBlogPost";
 import PageBlog from "./blog/PageBlog";
 import PageContact from "./contact/PageContact";
 import PageAbout from "./about/PageAbout";
+import PageProjects from "./projects/PageProjects";
 
 interface PageProps {
     apiUrl: string;
@@ -38,6 +39,8 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
                 return <PageLogin apiUrl={apiUrl} throwError={throwError} />;
             case "logout":
                 return <PageLogout />;
+            case "projects":
+                return <PageProjects />;
             case "root":
                 return <PageRoot apiUrl={apiUrl} throwError={throwError} />;
             case "signup":
