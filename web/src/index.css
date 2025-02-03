@@ -1,10 +1,20 @@
 @font-face {
   font-family: 'CaptureIt';
-  src: url('font/CaptureIt.woff2') format('woff2');
+  src: url('/font/CaptureIt.woff2') format('woff2');
 }
 
 h1 {
   font-family: 'CaptureIt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 4rem;
   color: #eb721c;
+}
+
+.btn-orange {
+  background-color: #eb721c;
+}
+
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active {
+  background-color: #8b420c;
 }

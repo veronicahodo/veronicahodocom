@@ -74,7 +74,7 @@ const PageLogin = ({ apiUrl, throwError }: PageProps) => {
                         >
                             Reset
                         </Button>
-                        <Button variant="primary" type="submit">
+                        <Button variant="orange" type="submit">
                             Submit
                         </Button>
                     </Col>

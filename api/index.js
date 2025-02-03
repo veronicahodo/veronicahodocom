@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import log from "./tools/logger.js";
 import userRoutes from "./routes/v1/userRoutes.js";
+import blogRoutes from "./routes/v1/blogRoutes.js";
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/v1/user", userRoutes);
+app.use("/v1/blog", blogRoutes);
+
 app.use("/*", (_, res) => res.status(404).json({ error: "Not found" }));
 
 let httpsServer = null;

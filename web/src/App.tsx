@@ -28,6 +28,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     {createRoute("/", "root")}
+                    {createRoute("/blog/post", "blog-post", true)}
                     {createRoute("/login", "login")}
                     {createRoute("/logout", "logout")}
                     {createRoute("/signup", "signup")}

@@ -7,6 +7,7 @@ import PageSignup from "./signup/PageSignup";
 import PageLogin from "./login/PageLogin";
 import PageLogout from "./logout/PageLogout";
 import NavBar from "../widgets/NavBar";
+import PageBlogPost from "./blog/post/PageBlogPost";
 
 interface PageProps {
     apiUrl: string;
@@ -22,6 +23,8 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
 
     const processPage = (pageName: string) => {
         switch (pageName) {
+            case "blog-post":
+                return <PageBlogPost apiUrl={apiUrl} throwError={throwError} />;
             case "login":
                 return <PageLogin apiUrl={apiUrl} throwError={throwError} />;
             case "logout":
