@@ -3,6 +3,7 @@ export interface DataJwt {
     first_name: string;
     last_name: string;
     display_name: string;
+    pic?: string;
     email: string;
     roles: string[];
     exp: number;
