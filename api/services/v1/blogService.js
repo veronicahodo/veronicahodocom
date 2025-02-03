@@ -34,6 +34,10 @@ export const retrieveBlogPostsByTag = async (tag) => {
     return await db("blog_posts").where("tags", "like", "%" + tag + "%");
 };
 
+export const retrieveLatestBlogPosts = async (count) => {
+    return await db("blog_posts").orderBy("created", "desc").limit(count);
+};
+
 export const updateBlogPost = async (postId, blogPost) => {
     await db("blog_posts").where({ id: postId }).update(blogPost);
     return await db("blog_posts").where({ id: postId }).first();

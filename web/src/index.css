@@ -3,9 +3,21 @@
   src: url('/font/CaptureIt.woff2') format('woff2');
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 h1 {
   font-family: 'CaptureIt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 4rem;
+  color: #eb721c;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+a {
   color: #eb721c;
 }
 

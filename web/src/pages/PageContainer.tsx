@@ -30,11 +30,11 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
             case "logout":
                 return <PageLogout />;
             case "root":
-                return <PageRoot />;
+                return <PageRoot apiUrl={apiUrl} throwError={throwError} />;
             case "signup":
                 return <PageSignup apiUrl={apiUrl} throwError={throwError} />;
             default:
-                return <PageRoot />;
+                return <PageRoot apiUrl={apiUrl} throwError={throwError} />;
         }
     };
 

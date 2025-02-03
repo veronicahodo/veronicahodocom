@@ -59,14 +59,20 @@ const Header = () => {
 
     return (
         <div className="m-2 d-flex justify-content-between align-items-center">
-            <h1>
+            <div
+                style={{
+                    fontFamily:
+                        "'CaptureIt','Segoe UI' Tahoma, Geneva, Verdana, sans-serif",
+                    fontSize: "5rem",
+                }}
+            >
                 <a
                     style={{ textDecoration: "none", color: "#eb721c" }}
                     href="/"
                 >
                     Veronica Hodo
                 </a>
-            </h1>
+            </div>
             {!localStorage.getItem("token") && (
                 <a
                     href="/login"

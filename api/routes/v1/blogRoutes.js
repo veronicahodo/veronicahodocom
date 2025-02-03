@@ -1,8 +1,13 @@
 import express from "express";
-import { postBlogPost } from "../../controllers/v1/blogController.js";
+import {
+    postBlogPost,
+    getLatestPosts,
+} from "../../controllers/v1/blogController.js";
 import { authenticate } from "../../middleware/auth.js";
 
 const router = express.Router();
+
+router.get("/latest/:count", authenticate, getLatestPosts);
 
 router.post("/", authenticate, postBlogPost);
 
