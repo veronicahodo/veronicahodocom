@@ -31,6 +31,7 @@ function App() {
                     {createRoute("/blog/post", "blog-post", true)}
                     {createRoute("/blog/:post", "blog")}
                     {createRoute("/blog", "blog")}
+                    {createRoute("/contact", "contact")}
                     {createRoute("/login", "login")}
                     {createRoute("/logout", "logout")}
                     {createRoute("/signup", "signup")}

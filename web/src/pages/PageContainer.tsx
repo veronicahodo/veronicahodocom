@@ -9,6 +9,7 @@ import PageLogout from "./logout/PageLogout";
 import NavBar from "../widgets/NavBar";
 import PageBlogPost from "./blog/post/PageBlogPost";
 import PageBlog from "./blog/PageBlog";
+import PageContact from "./contact/PageContact";
 
 interface PageProps {
     apiUrl: string;
@@ -28,6 +29,8 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
                 return <PageBlog apiUrl={apiUrl} throwError={throwError} />;
             case "blog-post":
                 return <PageBlogPost apiUrl={apiUrl} throwError={throwError} />;
+            case "contact":
+                return <PageContact />;
             case "login":
                 return <PageLogin apiUrl={apiUrl} throwError={throwError} />;
             case "logout":
