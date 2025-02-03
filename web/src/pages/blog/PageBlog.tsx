@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import { jwtDecode } from "jwt-decode";
 import { DataJwt } from "../../models/DataJwt";
 import { Button } from "react-bootstrap";
+import Border from "../../widgets/Border";
 
 interface PageProps {
     apiUrl: string;
@@ -87,7 +88,7 @@ const PageBlog = ({ apiUrl, throwError }: PageProps) => {
             {activePost && (
                 <>
                     <h1>{activePost?.title}</h1>
-                    <img src="/img/border1.png" />
+                    <Border />
                     <div className="text-muted" style={{ fontSize: "12px" }}>
                         --==[ Created:{" "}
                         {numberToDate(
@@ -104,18 +105,17 @@ const PageBlog = ({ apiUrl, throwError }: PageProps) => {
                             {activePost?.payload.split("#!break#").join("")}
                         </Markdown>
                     </div>
-
-                    <img src="/img/border1.png" />
+                    <Border />
                 </>
             )}
             {posts.length > 0 && (
                 <>
                     <h1>Blog</h1>
-                    <img src="/img/border1.png" />
+                    <Border />
                     {posts.map((post) => (
                         <BlogPreview key={post.id} post={post} />
                     ))}
-                    <img src="/img/border1.png" />
+                    <Border />
                 </>
             )}
             <br />

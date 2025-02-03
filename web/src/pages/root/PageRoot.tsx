@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { DataBlogPost } from "../../models/DataBlogPost";
 import axios from "axios";
 import BlogPreview from "../../widgets/BlogPreview";
+import Border from "../../widgets/Border";
 
 interface PageProps {
     apiUrl: string;
@@ -33,11 +34,11 @@ const PageRoot = ({ apiUrl, throwError }: PageProps) => {
     return (
         <>
             <h1>Welcome</h1>
-            <img src="/img/border1.png" />
+            <Border />
             {posts.map((post) => (
                 <BlogPreview key={post.id} post={post} />
             ))}
-            <img src="/img/border1.png" />
+            <Border />
         </>
     );
 };

@@ -1,8 +1,10 @@
+import Border from "../../widgets/Border";
+
 const PageContact = () => {
     return (
         <>
             <h1>Contact</h1>
-            <img src="/img/border1.png" />
+            <Border />
 
             <div style={{ padding: "20px" }}>
                 <p>
@@ -40,8 +42,7 @@ const PageContact = () => {
                     </a>
                 </p>
             </div>
-
-            <img src="/img/border1.png" />
+            <Border />
         </>
     );
 };

@@ -1,10 +1,11 @@
 import { Col, Row } from "react-bootstrap";
+import Border from "../../widgets/Border";
 
 const PageAbout = () => {
     return (
         <>
             <h1>About</h1>
-            <img style={{ maxWidth: "100%" }} src="/img/border1.png" />
+            <Border />
             <div style={{ padding: "20px" }}>
                 <Row>
                     <Col xs={12} md={8}>
@@ -76,7 +77,7 @@ const PageAbout = () => {
                     </Col>
                 </Row>
             </div>
-            <img style={{ maxWidth: "100%" }} src="/img/border1.png" />
+            <Border />
         </>
     );
 };

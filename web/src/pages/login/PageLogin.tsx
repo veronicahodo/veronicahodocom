@@ -2,6 +2,7 @@ import axios from "axios";
 import { FormEvent, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import Border from "../../widgets/Border";
 
 interface PageProps {
     apiUrl: string;
@@ -40,6 +41,7 @@ const PageLogin = ({ apiUrl, throwError }: PageProps) => {
     return (
         <>
             <h1>Login</h1>
+            <Border />
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col className="mb-2">
@@ -80,6 +82,7 @@ const PageLogin = ({ apiUrl, throwError }: PageProps) => {
                     </Col>
                 </Row>
             </Form>
+            <Border />
         </>
     );
 };

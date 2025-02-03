@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { DataUser, DefaultDataUser } from "../../models/DataUser";
 import axios from "axios";
+import Border from "../../widgets/Border";
 
 interface PageProps {
     apiUrl: string;
@@ -55,6 +56,7 @@ const PageSignup = ({ apiUrl, throwError }: PageProps) => {
             {!done && (
                 <>
                     <h1>Signup</h1>
+                    <Border />
                     <Form onSubmit={handleSubmit}>
                         <p>
                             To join my wonderful little site, please create your
@@ -165,16 +167,19 @@ const PageSignup = ({ apiUrl, throwError }: PageProps) => {
                             </Col>
                         </Row>
                     </Form>
+                    <Border />
                 </>
             )}
             {done && (
                 <>
                     <h1>Signup Successful!</h1>
+                    <Border />
                     <p>
                         Your signup was submitted successfully and you should
                         have an email with instructions on completing your
                         setup.
                     </p>
+                    <Border />
                 </>
             )}
         </>
