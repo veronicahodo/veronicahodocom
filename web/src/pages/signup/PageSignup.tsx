@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { DataUser, DefaultDataUser } from "../../models/DataUser";
-import { DataUserInfo, DefaultDataUserInfo } from "../../models/DataUserInfo";
 import axios from "axios";
 
 interface PageProps {
@@ -25,7 +24,8 @@ const PageSignup = ({ apiUrl, throwError }: PageProps) => {
             .post(`${apiUrl}/v1/user`, {
                 email: workingUser.email,
                 password: password,
-                ...workingUser.userInfo,
+                first_name: workingUser?.first_name,
+                last_name: workingUser?.last_name,
             })
             .then((res) => {
                 if (res.status === 201) {
@@ -50,19 +50,6 @@ const PageSignup = ({ apiUrl, throwError }: PageProps) => {
         });
     };
 
-    const handleUserInfoChange = (
-        key: keyof DataUserInfo,
-        value: number | string
-    ) => {
-        setWorkingUser({
-            ...workingUser,
-            userInfo: {
-                ...(workingUser.userInfo ?? DefaultDataUserInfo),
-                [key]: value,
-            },
-        });
-    };
-
     return (
         <>
             {!done && (
@@ -82,9 +69,9 @@ const PageSignup = ({ apiUrl, throwError }: PageProps) => {
                                     <Form.Label>First Name</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        value={workingUser.userInfo?.first_name}
+                                        value={workingUser?.first_name}
                                         onChange={(e) =>
-                                            handleUserInfoChange(
+                                            handleUserChange(
                                                 "first_name",
                                                 e.target.value
                                             )
@@ -100,9 +87,9 @@ const PageSignup = ({ apiUrl, throwError }: PageProps) => {
                                     <Form.Label>Last Name</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        value={workingUser.userInfo?.last_name}
+                                        value={workingUser?.last_name}
                                         onChange={(e) =>
-                                            handleUserInfoChange(
+                                            handleUserChange(
                                                 "last_name",
                                                 e.target.value
                                             )

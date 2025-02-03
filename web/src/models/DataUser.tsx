@@ -1,11 +1,12 @@
-import { DataUserInfo, DefaultDataUserInfo } from "./DataUserInfo";
-
 export interface DataUser {
     id: number;
     email: string;
     verified: number;
     disabled: number;
-    userInfo?: DataUserInfo;
+    first_name?: string;
+    last_name?: string;
+    display_name?: string;
+    theme?: string;
 }
 
 export const DefaultDataUser: DataUser = {
@@ -13,5 +14,4 @@ export const DefaultDataUser: DataUser = {
     email: "",
     verified: 0,
     disabled: 0,
-    userInfo: DefaultDataUserInfo,
 };

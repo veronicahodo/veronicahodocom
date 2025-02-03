@@ -78,5 +78,7 @@ export const authenticateUser = async (email, password) => {
     if (!user) throw new Error("User not found");
     if (!bcrypt.compare(password, user.password_hash))
         throw new Error("Incorrect password");
-    return user;
+    const userInfo = await retrieveUserInfo(user.id);
+    if (!userInfo) throw new Error("User info not found");
+    return { ...user, ...userInfo };
 };

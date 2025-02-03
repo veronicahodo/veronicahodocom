@@ -41,7 +41,15 @@ export const postUserAuth = async (req, res) => {
     try {
         const user = await authenticateUser(email, password);
         const token = jwt.sign(
-            { id: user.id, roles: user.roles.split(",") },
+            {
+                id: user.id,
+                email: user.email,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                display_name: user.display_name,
+                roles: user.roles.split(","),
+                exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
+            },
             process.env.JWT_SECRET
         );
         log(

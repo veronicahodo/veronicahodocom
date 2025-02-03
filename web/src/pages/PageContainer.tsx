@@ -4,6 +4,7 @@ import PageRoot from "./root/PageRoot";
 import { Button, Modal } from "react-bootstrap";
 import { jwtDecode } from "jwt-decode";
 import PageSignup from "./signup/PageSignup";
+import PageLogin from "./login/PageLogin";
 
 interface PageProps {
     apiUrl: string;
@@ -19,6 +20,8 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
 
     const processPage = (pageName: string) => {
         switch (pageName) {
+            case "login":
+                return <PageLogin apiUrl={apiUrl} throwError={throwError} />;
             case "root":
                 return <PageRoot />;
             case "signup":
