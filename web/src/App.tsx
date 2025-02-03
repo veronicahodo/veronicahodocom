@@ -29,6 +29,7 @@ function App() {
                 <Routes>
                     {createRoute("/", "root")}
                     {createRoute("/login", "login")}
+                    {createRoute("/logout", "logout")}
                     {createRoute("/signup", "signup")}
                 </Routes>
             </BrowserRouter>
