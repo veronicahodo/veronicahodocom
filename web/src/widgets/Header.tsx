@@ -1,9 +1,10 @@
 import { jwtDecode } from "jwt-decode";
-import { DataJwt } from "../models/DataJwt";
-import { useState } from "react";
+import { DataJwt, DefaultDataJwt } from "../models/DataJwt";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-    const jwt: DataJwt = jwtDecode(localStorage.getItem("token") ?? "");
+    const [jwt, setJwt] = useState<DataJwt>(DefaultDataJwt);
+
     const [showProfileMenu, setShowProfileMenu] = useState<boolean>(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
@@ -47,55 +48,78 @@ const Header = () => {
         );
     };
 
+    useEffect(() => {
+        try {
+            setJwt(jwtDecode(localStorage.getItem("token") ?? ""));
+        } catch (error) {
+            console.log(error);
+            localStorage.removeItem("token");
+        }
+    }, []);
+
     return (
         <div className="m-2 d-flex justify-content-between align-items-center">
-            <a href="/">
-                <img src="img/vh.png" alt="Veronica Hodo" />
-            </a>
-            {/* Wrap profile picture and menu in a container */}
-            <div style={{ position: "relative" }}>
-                <span
-                    className="me-3"
-                    style={{ cursor: "pointer" }}
-                    onClick={handleProfileClick}
+            <h1>
+                <a
+                    style={{ textDecoration: "none", color: "#eb721c" }}
+                    href="/"
                 >
-                    <img
-                        style={{ borderRadius: "50%" }}
-                        src={jwt.pic ?? "img/default.jpg"}
-                        alt="User Pic"
-                        height={48}
-                        width={48}
-                    />
-                </span>
-                {showProfileMenu && (
-                    <div
-                        style={{
-                            position: "absolute",
-                            top: "100%", // Position it right below the profile picture
-                            left: "50%", // Center it under the profile pic
-                            transform: "translateX(-100%)",
-                            width: "150px",
-                            borderRadius: "7px",
-                            backgroundColor:
-                                (localStorage.getItem("theme") ?? "light") ===
-                                "light"
-                                    ? "white"
-                                    : "black",
-                            color:
-                                (localStorage.getItem("theme") ?? "light") ===
-                                "light"
-                                    ? "black"
-                                    : "white",
-                            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Add shadow for visibility
-                            padding: "10px",
-                            zIndex: 1000, // Ensure it appears above other content
-                        }}
+                    Veronica Hodo
+                </a>
+            </h1>
+            {!localStorage.getItem("token") && (
+                <a
+                    href="/login"
+                    style={{ textDecoration: "none", color: "#eb721c" }}
+                >
+                    Login
+                </a>
+            )}
+            {localStorage.getItem("token") && (
+                <div style={{ position: "relative" }}>
+                    <span
+                        className="me-3"
+                        style={{ cursor: "pointer" }}
+                        onClick={handleProfileClick}
                     >
-                        {createMenuItem("Settings", "/settings")}
-                        {createMenuItem("Logout", "/logout")}
-                    </div>
-                )}
-            </div>
+                        <img
+                            style={{ borderRadius: "50%" }}
+                            src={jwt.pic ?? "img/default.jpg"}
+                            alt="User Pic"
+                            height={48}
+                            width={48}
+                        />
+                    </span>
+                    {showProfileMenu && (
+                        <div
+                            style={{
+                                position: "absolute",
+                                top: "100%", // Position it right below the profile picture
+                                left: "50%", // Center it under the profile pic
+                                transform: "translateX(-100%)",
+                                width: "150px",
+                                borderRadius: "7px",
+                                backgroundColor:
+                                    (localStorage.getItem("theme") ??
+                                        "light") === "light"
+                                        ? "white"
+                                        : "black",
+                                color:
+                                    (localStorage.getItem("theme") ??
+                                        "light") === "light"
+                                        ? "black"
+                                        : "white",
+                                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Add shadow for visibility
+                                padding: "10px",
+                                zIndex: 1000, // Ensure it appears above other content
+                            }}
+                        >
+                            {createMenuItem("Settings", "/settings")}
+                            {createMenuItem("Logout", "/logout")}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
