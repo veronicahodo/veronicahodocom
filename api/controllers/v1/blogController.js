@@ -15,7 +15,7 @@ export const postBlogPost = async (req, res) => {
         author_id: req.user.id,
         title,
         payload,
-        tags,
+        tags: tags.join(","),
         slug,
     };
 

@@ -101,7 +101,7 @@ const PageBlog = ({ apiUrl, throwError }: PageProps) => {
                     </div>
                     <div style={{ padding: "20px" }}>
                         <Markdown remarkPlugins={[remarkGfm]}>
-                            {activePost?.payload}
+                            {activePost?.payload.split("#!break#").join("")}
                         </Markdown>
                     </div>
 
