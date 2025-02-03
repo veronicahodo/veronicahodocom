@@ -6,7 +6,7 @@ const NavBar = () => {
         fontFamily: "'CaptureIt','Segoe UI',sans-serif",
         textDecoration: "none",
         color: "#eb721c",
-        padding: "0 5px",
+        padding: "0 15px",
         transition: "background-color 0.2s, color 0.2s",
     };
 
@@ -30,12 +30,12 @@ const NavBar = () => {
     );
 
     return (
-        <div className="m-2 d-flex justify-content-center align-items-center">
-            . .- --====[ {createNavLink("Home", "/")} ] - [
-            {createNavLink("About", "/about")} ] - [
-            {createNavLink("Blog", "/blog")} ] - [
-            {createNavLink("Projects", "/projects")} ] - [
-            {createNavLink("Contact", "/contact")} ]====-- -. .
+        <div className="m-2 d-flex flex-wrap justify-content-center align-items-center">
+            {createNavLink("Home", "/")}
+            {createNavLink("About", "/about")}
+            {createNavLink("Blog", "/blog")}
+            {createNavLink("Projects", "/projects")}
+            {createNavLink("Contact", "/contact")}
         </div>
     );
 };
