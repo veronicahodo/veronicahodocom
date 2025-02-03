@@ -13,7 +13,7 @@ const PageRoot = ({ apiUrl, throwError }: PageProps) => {
 
     useEffect(() => {
         axios
-            .get(`${apiUrl}/v1/blog/latest/10`)
+            .get(`${apiUrl}/v1/blog/latest/3`)
             .then((res) => {
                 if (res.status === 200) {
                     setPosts(res.data.posts);

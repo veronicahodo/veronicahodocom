@@ -62,7 +62,7 @@ const Header = () => {
             <div
                 style={{
                     fontFamily:
-                        "'CaptureIt','Segoe UI' Tahoma, Geneva, Verdana, sans-serif",
+                        "'CaptureIt','Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                     fontSize: "5rem",
                 }}
             >

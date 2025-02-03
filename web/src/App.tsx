@@ -29,6 +29,8 @@ function App() {
                 <Routes>
                     {createRoute("/", "root")}
                     {createRoute("/blog/post", "blog-post", true)}
+                    {createRoute("/blog/:post", "blog")}
+                    {createRoute("/blog", "blog")}
                     {createRoute("/login", "login")}
                     {createRoute("/logout", "logout")}
                     {createRoute("/signup", "signup")}

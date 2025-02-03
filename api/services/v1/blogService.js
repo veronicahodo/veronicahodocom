@@ -27,15 +27,27 @@ export const retrieveBlogPost = async (postId) => {
 };
 
 export const retrieveBlogPostsByRange = async (start, end) => {
-    return await db("blog_posts").whereBetween("created", [start, end]);
+    return await db("blog_posts")
+        .whereBetween("created", [start, end])
+        .orderBy("created", "desc");
 };
 
 export const retrieveBlogPostsByTag = async (tag) => {
-    return await db("blog_posts").where("tags", "like", "%" + tag + "%");
+    return await db("blog_posts")
+        .where("tags", "like", "%" + tag + "%")
+        .orderBy("created", "desc");
 };
 
-export const retrieveLatestBlogPosts = async (count) => {
-    return await db("blog_posts").orderBy("created", "desc").limit(count);
+export const retrieveLatestBlogPosts = async (count, page = 1) => {
+    const offset = (page - 1) * count;
+    return await db("blog_posts")
+        .orderBy("created", "desc")
+        .offset(offset)
+        .limit(count);
+};
+
+export const retrieveBlogPostBySlug = async (slug) => {
+    return await db("blog_posts").where({ slug }).first();
 };
 
 export const updateBlogPost = async (postId, blogPost) => {

@@ -2,6 +2,7 @@ import log from "../../tools/logger.js";
 import {
     createBlogPost,
     retrieveLatestBlogPosts,
+    retrieveBlogPostBySlug,
 } from "../../services/v1/blogService.js";
 
 export const postBlogPost = async (req, res) => {
@@ -56,4 +57,31 @@ export const getLatestPosts = async (req, res) => {
         );
         res.status(200).json({ posts });
     } catch (error) {}
+};
+
+export const getBlogPost = async (req, res) => {
+    const { slug } = req.params;
+    if (!slug) return res.status(400).json({ error: "Missing slug" });
+
+    try {
+        const post = await retrieveBlogPostBySlug(slug);
+        if (!post) return res.status(404).json({ error: "Post not found" });
+        log(
+            "info",
+            "blogController.getBlogPost",
+            `Retrieved blog post ${post.id}`,
+            req.user !== null ? req.user.id : "",
+            req.ip
+        );
+        return res.status(200).json({ post });
+    } catch (error) {
+        log(
+            "error",
+            "blogController.getBlogPost",
+            error.message,
+            req.user !== null ? req.user.id : "",
+            req.ip
+        );
+        return res.status(500).json({ error: error.message });
+    }
 };
