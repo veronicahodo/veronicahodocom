@@ -90,7 +90,11 @@ const Header = () => {
                     >
                         <img
                             style={{ borderRadius: "50%" }}
-                            src={jwt.pic ?? "/img/default.jpg"}
+                            src={
+                                (jwt.pic ?? "").length > 0
+                                    ? jwt.pic
+                                    : "/img/default.jpg"
+                            }
                             alt="User Pic"
                             height={48}
                             width={48}

@@ -13,6 +13,7 @@ import PageContact from "./contact/PageContact";
 import PageAbout from "./about/PageAbout";
 import PageProjects from "./projects/PageProjects";
 import Footer from "../widgets/Footer";
+import PageSettings from "./settings/PageSettings";
 
 interface PageProps {
     apiUrl: string;
@@ -44,6 +45,8 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
                 return <PageProjects />;
             case "root":
                 return <PageRoot apiUrl={apiUrl} throwError={throwError} />;
+            case "settings":
+                return <PageSettings apiUrl={apiUrl} throwError={throwError} />;
             case "signup":
                 return <PageSignup apiUrl={apiUrl} throwError={throwError} />;
             default:

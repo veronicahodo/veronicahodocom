@@ -23,6 +23,7 @@ a {
 }
 
 .btn-orange {
+  color: #fff;
   background-color: #eb721c;
 }
 
@@ -30,4 +31,5 @@ a {
 .btn-orange:focus,
 .btn-orange:active {
   background-color: #8b420c;
+  color: #aaa;
 }
