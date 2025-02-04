@@ -89,7 +89,10 @@ const PageBlog = ({ apiUrl, throwError }: PageProps) => {
                 <>
                     <h1>{activePost?.title}</h1>
                     <Border />
-                    <div className="text-muted" style={{ fontSize: "12px" }}>
+                    <div
+                        className="text-muted m-4"
+                        style={{ fontSize: "12px" }}
+                    >
                         --==[ Created:{" "}
                         {numberToDate(
                             Number(activePost?.created ?? Date.now())
@@ -112,9 +115,11 @@ const PageBlog = ({ apiUrl, throwError }: PageProps) => {
                 <>
                     <h1>Blog</h1>
                     <Border />
-                    {posts.map((post) => (
-                        <BlogPreview key={post.id} post={post} />
-                    ))}
+                    <div className="m-4">
+                        {posts.map((post) => (
+                            <BlogPreview key={post.id} post={post} />
+                        ))}
+                    </div>
                     <Border />
                 </>
             )}

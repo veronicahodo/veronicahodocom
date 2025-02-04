@@ -35,9 +35,11 @@ const PageRoot = ({ apiUrl, throwError }: PageProps) => {
         <>
             <h1>Welcome</h1>
             <Border />
-            {posts.map((post) => (
-                <BlogPreview key={post.id} post={post} />
-            ))}
+            <div className="m-4">
+                {posts.map((post) => (
+                    <BlogPreview key={post.id} post={post} />
+                ))}
+            </div>
             <Border />
         </>
     );

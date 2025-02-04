@@ -6,7 +6,7 @@ const PageProjects = () => {
         <>
             <h1>Projects</h1>
             <Border />
-            <div style={{ padding: "20px" }}>
+            <div className="m-4">
                 <Row>
                     <Col>
                         <div className="text-center">

@@ -12,6 +12,7 @@ import PageBlog from "./blog/PageBlog";
 import PageContact from "./contact/PageContact";
 import PageAbout from "./about/PageAbout";
 import PageProjects from "./projects/PageProjects";
+import Footer from "../widgets/Footer";
 
 interface PageProps {
     apiUrl: string;
@@ -94,6 +95,7 @@ const PageContainer = ({ apiUrl, page, secure = false }: PageProps) => {
             <Header />
             <NavBar />
             <div className="pageContainer m-5">{processPage(page)}</div>
+            <Footer />
             <Modal show={showError}>
                 <Modal.Header closeButton>
                     <Modal.Title>Error</Modal.Title>
